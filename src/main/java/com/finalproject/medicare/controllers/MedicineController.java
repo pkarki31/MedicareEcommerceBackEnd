@@ -48,6 +48,14 @@ public class MedicineController {
         return med;
     }
 
+//    // API : localhost:8080/medicare/searchMedicine?searchText=200
+//    @GetMapping(value = "/sortByIdMedicine",consumes = {"application/json"},produces = {"application/json"})
+//    public List<Medicine> sortByIdMedicine(){
+//
+//        List<Medicine> med = medicineService.searchAllMedicine();
+//        return med;
+//    }
+
 
 
 

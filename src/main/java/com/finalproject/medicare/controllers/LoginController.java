@@ -1,5 +1,6 @@
 package com.finalproject.medicare.controllers;
 
+import com.finalproject.medicare.entity.LoginResponse;
 import com.finalproject.medicare.entity.Users;
 import com.finalproject.medicare.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,13 @@ public class LoginController {
     LoginService service;
 
     // API : localhost:8080/medicare/isAdmin?username=admin&password=admin
-    @GetMapping("/isAdmin")
-    public String getUserID(@RequestParam("username") String username,@RequestParam("password") String password) {
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping(value ="/isAdmin",consumes = {"application/json"},produces = {"application/json"})
+    public LoginResponse getUserID(@RequestBody Users user) {
 
-        String loggedInUser = service.login(username,password);
+        LoginResponse loggedInUser = service.login(user.getUsername(),user.getPassword());
 
-        return loggedInUser.toString();
+        return loggedInUser;
 
     }
 
