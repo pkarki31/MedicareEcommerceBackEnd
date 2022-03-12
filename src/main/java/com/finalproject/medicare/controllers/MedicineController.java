@@ -17,6 +17,7 @@ public class MedicineController {
     MedicineService medicineService;
 
     // API : localhost:8080/medicare/createMedicine/
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/createMedicine",consumes = {"application/json"},produces = {"application/json"})
     public Medicine createMedicine(@RequestBody Medicine medicine){
 
@@ -25,6 +26,7 @@ public class MedicineController {
     }
 
     // API : localhost:8080/medicare/createMedicine/
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/updateMedicine",consumes = {"application/json"},produces = {"application/json"})
     public Medicine updateMedicine(@RequestBody Medicine medicine){
 
@@ -33,6 +35,7 @@ public class MedicineController {
     }
 
     // API : localhost:8080/medicare/getAllMedicine/
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/getAllMedicine",consumes = {"application/json"},produces = {"application/json"})
     public List<Medicine> getAllMedicine(){
 
@@ -41,6 +44,7 @@ public class MedicineController {
     }
 
     // API : localhost:8080/medicare/searchMedicine?searchText=200
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/searchMedicine",consumes = {"application/json"},produces = {"application/json"})
     public List<Medicine> searchMedicine(@RequestParam("searchText") String searchText){
 

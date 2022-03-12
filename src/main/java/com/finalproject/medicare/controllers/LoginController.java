@@ -26,6 +26,7 @@ public class LoginController {
     }
 
     // API : localhost:8080/medicare/createUser/
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/createUser",consumes = {"application/json"},produces = {"application/json"})
     public Users createUser(@RequestBody Users user){
 
