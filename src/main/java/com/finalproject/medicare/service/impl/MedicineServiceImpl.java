@@ -35,8 +35,9 @@ public class MedicineServiceImpl implements MedicineService {
         int medQty = medicine.getQuantity();
         int medPrice = medicine.getPrice();
         boolean medActive = medicine.isActive();
+        String image = medicine.getImage();
 
-        int med1 = medicinerepository.updateMed(m_id,medicine_name,medCompany,medDesc,medQty,medPrice,medActive);
+        int med1 = medicinerepository.updateMed(m_id,medicine_name,medCompany,medDesc,medQty,medPrice,medActive,image);
         if(med1>0){
 
             return medicine;
@@ -52,8 +53,27 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
+    public List<Medicine> getAllActiveMedicine() {
+        boolean text =true;
+        List<Medicine> allMedList = medicinerepository.findAllActive(text);
+        return allMedList;
+    }
+
+    @Override
     public List<Medicine> searchAllMedicine(String searchText) {
         List<Medicine> allSearchedMedList = medicinerepository.searchMedicine(searchText);
+        return allSearchedMedList;
+    }
+
+    @Override
+    public Medicine searchMedicineById(int m_id) {
+        Medicine allSearchedMedList = medicinerepository.searchMedicineById(m_id);
+        return allSearchedMedList;
+    }
+
+    @Override
+    public int deleteMedicineById(int m_id) {
+        int allSearchedMedList = medicinerepository.deleteMedicineById(m_id);
         return allSearchedMedList;
     }
 }

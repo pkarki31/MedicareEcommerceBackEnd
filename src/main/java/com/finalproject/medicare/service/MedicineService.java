@@ -15,5 +15,11 @@ public interface MedicineService {
 
     List<Medicine> getAllMedicine();
 
+    List<Medicine> getAllActiveMedicine();
+
     List<Medicine> searchAllMedicine(String searchText);
+
+    Medicine searchMedicineById(int m_id);
+
+    int deleteMedicineById(int m_id);
 }
